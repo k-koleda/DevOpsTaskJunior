@@ -123,10 +123,10 @@ Configuration TargetTest{
 				Out-File -FilePath $using:LogFile -Append -InputObject "$(Get-Date -Format g) [Script]FindError  $exception"
 				Write-Error "$_.Exception.Message"
 				}
-}
+                        }
             TestScript = {
 				if ((Get-Content "$using:SiteLoc\Web.config") -match '<system.web.>'){return $False} else {return $True}
-}
+                         }
             GetScript = {return "File exist"}
             DependsOn = "[Archive]TargetZip"
             }
